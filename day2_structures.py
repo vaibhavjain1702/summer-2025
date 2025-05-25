@@ -196,3 +196,35 @@ class MyClass:
     x=5
 p1 = MyClass()  # creates an object of the class
 print(p1.x)  # prints 5
+
+# init==constructor is a special method that is called when an object is created
+class Person:
+    def __init__(self, name, age):  # constructor
+        self.name = name  # instance variable
+        self.age = age  # instance variable
+
+p1 = Person("John", 36)  # creates an object of the class
+print(p1.name)  # prints John
+print(p1.age)  # prints 36
+
+# __str__() function
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def __str__(self):  # this function is called when we print the object
+        return f"{self.name} is {self.age} years old"
+p1 = Person("John", 36)  # creates an object of the class
+print(p1)  # prints John is 36 years old
+
+# object methods
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def myfunc(self):
+        print("Hello my name is " + self.name)
+p1 = Person("John", 36)  # creates an object of the class
+p1.myfunc()  # calls the myfunc() method of the object, prints Hello my name is John
