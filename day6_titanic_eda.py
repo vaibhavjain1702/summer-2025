@@ -44,3 +44,6 @@ plt.title('Missing Values Heatmap After Cleaning')
 plt.xlabel('Columns')
 plt.ylabel('Rows')
 plt.show()
+
+# what does cbar mean in sns.heatmap?
+# In `sns.heatmap`, the parameter `cbar` stands for "color bar." It is a boolean parameter that determines whether to display a color bar alongside the heatmap. The color bar provides a reference for the values represented by the colors in the heatmap, helping to interpret the data visually. If `cbar=True`, the color bar will be shown; if `cbar=False`, it will not be displayed. In your code, `cbar=False` means that the heatmap will be displayed without a color bar.
