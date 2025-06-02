@@ -76,3 +76,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # 4. **Splitting the Data**: We use `train_test_split` from `sklearn.model_selection` to split the dataset into training and testing sets.
 #    - `X_train` and `y_train` will be used to train the model, while `X_test` and `y_test` will be used to evaluate its performance.
 # This preparation is essential for building a machine learning model to predict survival on the Titanic based on the selected features.
+
+# what does test size=0.2 and random state 42 mean in train_test_split?
+# In the context of `train_test_split`, these parameters have specific meanings:
+# 1. **test_size=0.2**: This parameter specifies the proportion of the dataset to include in the test split. A value of 0.2 means that 20% of the data will be used for testing, while the remaining 80% will be used for training the model. This is a common practice to ensure that the model is evaluated on unseen data.
+# 2. **random_state=42**: This parameter is used to control the randomness of the data splitting process. Setting a specific integer value (like 42) ensures that the split is reproducible. In other words, every time you run the code with `random_state=42`, you will get the same training and testing sets. This is useful for debugging and comparing results across different runs of the code. If you don't set a random state, the split will be different each time you run the code, which can lead to inconsistent results.
