@@ -99,3 +99,58 @@ except ValueError as e:
 arr = np.array([1, 2, 3, 4, 5])
 copy_of_arr = arr.copy()  # returns a copy of the array
 view_of_arr = arr.view()  # returns a view of the array
+print('Original array:', arr)  # prints [1 2 3 4 5]
+print('Copy of array:', copy_of_arr)  # prints [1 2 3 4 5]
+print('View of array:', view_of_arr)  # prints [1 2 3 4 5]
+# modifying the original array will not affect the copy, but will affect the view
+arr[0] = 10
+print('Modified original array:', arr)  # prints [10 2 3 4 5]
+print('Copy of array after modifying original:', copy_of_arr)  # prints [1 2 3 4 5]
+print('View of array after modifying original:', view_of_arr)  # prints [10 2 3 4 5]
+
+print(arr.reshape(5,1).base)  # prints the base of the reshaped array, which is the original array
+
+# unknown dimension
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+reshaped_arr = arr.reshape(3, -1)  # -1 means "infer the size of this dimension"
+print('Reshaped array with unknown dimension:\n', reshaped_arr)  # prints the reshaped array
+# this will automatically adjust the number of columns based on the number of elements
+# in the original array, so it will reshape to 3 rows and 2 columns
+# if we had a 1D array, it would reshape to 3 rows and 1 column
+
+# flattening arrays
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+newarr=arr.reshape(-1)  # flattens the array to a 1D array
+print('Flattened array:', newarr)  # prints [1 2 3 4 5 6]
+# you can also use the flatten() method to flatten an array
+flattened_arr = arr.flatten()  # flattens the array to a 1D array
+print('Flattened array using flatten():', flattened_arr)  # prints [1 2 3 4 5 6]
+# you can also use ravel() to flatten an array
+raveled_arr = arr.ravel()  # flattens the array to a 1D array
+print('Flattened array using ravel():', raveled_arr)  # prints [1 2 3 4 5 6]
+# the difference between flatten() and ravel() is that flatten() returns a copy of the array,
+# while ravel() returns a view of the array if possible
+# so modifying the original array will not affect the flattened array created using flatten(),
+# but will affect the flattened array created using ravel()
+
+# what does reshape(6) do?
+# it reshapes the array to a 1D array with 6 elements
+arr = np.array([[1, 2, 3], [4, 5, 6]])
+reshaped_arr = arr.reshape(6)  # reshapes the array to a 1D array with 6 elements
+print('Reshaped array to 1D with 6 elements:', reshaped_arr)  # prints [1 2 3 4 5 6]
+
+# sum of 1d array
+arr = np.array([1, 2, 3, 4, 5])
+sum_of_elements = np.sum(arr)  # calculates the sum of all elements in the array
+print('Sum of elements:', sum_of_elements)  # prints 15
+
+# matrix multiplication
+arr1 = np.array([[1, 2], [3, 4]])
+arr2 = np.array([[5, 6], [7, 8]])
+result = np.dot(arr1, arr2)  # performs matrix multiplication
+# explain the dot function
+print('Result of matrix multiplication:\n', result)  # prints [[19 22] [43 50]]
+# the dot function performs matrix multiplication, which is different from element-wise multiplication
+# it multiplies the rows of the first matrix with the columns of the second matrix
+# and sums the products to get the resulting matrix
+# here it is like 1*5 + 2*7 = 19, 1*6 + 2*8 = 22, 3*5 + 4*7 = 43, 3*6 + 4*8 = 50
